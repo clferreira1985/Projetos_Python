@@ -1,0 +1,142 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOWDZAtyHk/Px1HJDaYIXL9",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/clferreira1985/Projetos_Python/blob/main/Criando%20lista%20de%20compras\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "itens = []"
+      ],
+      "metadata": {
+        "id": "RerjOkHy9Ud_"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "def adicionar_item():\n",
+        "  while True:\n",
+        "      item = input(\"Qual item gostaria de adicionar à lista? \")\n",
+        "\n",
+        "      if item in itens:\n",
+        "          print(f\"{item} já está na lista\")\n",
+        "      else:\n",
+        "          itens.append(item)\n",
+        "          pergunta = input(\"Gostaria de adicionar mais algum item? Aperte 1 para 'Sim' e 2 para 'Não: \")\n",
+        "          if pergunta == \"2\":\n",
+        "              print(\"Muito obrigado. Segue a lista:\")\n",
+        "              print(itens)\n",
+        "              break\n",
+        "\n",
+        "def remover_item():\n",
+        "    item = input(\"Qual item gostaria de remover? \")\n",
+        "    if item in itens:\n",
+        "        itens.remove(item)\n",
+        "        print(\"Item removido\")\n",
+        "    else:\n",
+        "        print(\"Item não encontrado na lista\")"
+      ],
+      "metadata": {
+        "id": "RgpFeGOZIzma"
+      },
+      "execution_count": 23,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lista = int(input(\"O que você deseja fazer? Aperte 1 para adicionar,  2 para remover item \"))\n",
+        "\n",
+        "if lista == 1:\n",
+        "  adicionar_item()\n",
+        "elif lista == 2:\n",
+        "  remover_item()\n",
+        "else:\n",
+        "  print(\"Número não encontrado\")\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 262
+        },
+        "id": "0gptewFsIz7c",
+        "outputId": "f1f9bbaa-f83a-47c8-a274-89b24fb38ed9"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "O que você deseja fazer? Aperte 1 para adicionar,  2 para remover item 2\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-22-1dc6b3331bb5>\u001b[0m in \u001b[0;36m<cell line: 3>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      4\u001b[0m   \u001b[0madicionar_item\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;32melif\u001b[0m \u001b[0mlista\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;36m2\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 6\u001b[0;31m   \u001b[0mremover_item\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      7\u001b[0m \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      8\u001b[0m   \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Número não encontrado\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mTypeError\u001b[0m: remover_item() missing 1 required positional argument: 'item'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "itens"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aMP9t4ArPx0O",
+        "outputId": "c9088663-9066-41d3-c176-6a8513cfeb13"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['pera', 'maça', 'laranja']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    }
+  ]
+}
