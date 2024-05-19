@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Generator</title>
+  </head>
+  <body>
+    <h1>Generate an Image</h1>
+    <form id="imageForm">
+      <label for="prompt">Which picture would you like?</label><br />
+      <input type="text" id="prompt" name="prompt" /><br /><br />
+      <input type="submit" value="Generate" />
+    </form>
+    <p id="result"></p>
+
+    <script>
+      document
+        .getElementById("imageForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+          const prompt = document.getElementById("prompt").value;
+
+          const response = await fetch("/image-generation", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer YOUR_API_TOKEN",
+            },
+            body: JSON.stringify({ prompt: prompt }),
+          });
+
+          const data = await response.json();
+          const resultElement = document.getElementById("result");
+          if (response.ok) {
+            resultElement.innerHTML = `<a href="${data.image_url}" target="_blank">Download Image</a>`;
+          } else {
+            resultElement.innerHTML = `Error: ${data.error}`;
+          }
+        });
+    </script>
+  </body>
+</html>
